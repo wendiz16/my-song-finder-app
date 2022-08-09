@@ -4,7 +4,7 @@ import Header from './Header.js';
 import Search from './Search.js';
 
 function App() {
-  const[trackList,setTrackList]=useState([]);
+  //const[trackList,setTrackList]=useState([]);
   
   useEffect(
     ()=>{
@@ -27,7 +27,7 @@ function App() {
 
       .then(res=>{
        console.log(res.data);
-       setTrackList(res.data.message.body.track_list);
+       //setTrackList(res.data.message.body.track_list);
       })
       .catch(err=>{
        console.log(err)
