@@ -1,4 +1,4 @@
-import{useEffect,useState} from 'react';
+import{useEffect} from 'react';
 import axios from 'axios';
 import Header from './Header.js';
 import Search from './Search.js';
