@@ -1,11 +1,22 @@
-import{useEffect} from 'react';
+import{useEffect,useState} from 'react';
 import axios from 'axios';
 import Header from './Header.js';
 import Search from './Search.js';
+import DisplayResults from './DisplayResults.js';
 
 function App() {
-  //const[trackList,setTrackList]=useState([]);
   
+  const [userSelection, setUserSelection]=useState('ca');
+  const[trackList,setTrackList]=useState([]);
+  
+  // Define country parameter:
+  const getCountries = (e, countries) => {
+    e.preventDefault();
+    console.log('getting country', countries);
+    setUserSelection(countries);
+  }
+
+
   useEffect(
     ()=>{
       
@@ -17,8 +28,8 @@ function App() {
         params: {
         chart_name:'top',
         page:1,
-        page_size:10,
-        country:'ca',
+        page_size:12,
+        country:userSelection,
         f_has_lyrics:1,
         apikey:'bb5df0cd53ff7e0ab07a9b17e5a6fb30'
 
@@ -26,23 +37,30 @@ function App() {
     })
 
       .then(res=>{
-       console.log(res.data);
-       //setTrackList(res.data.message.body.track_list);
+       console.log(res.data.message.body.track_list);
+       setTrackList(res.data.message.body.track_list);
       })
       .catch(err=>{
-       console.log(err)
-       alert()
+       console.log(err);
+       alert(err);
      }
        );
    
-     },[])
+     },[userSelection])
+
+  
    
   
   
   return (
     <div className="App">
       <Header />
-      <Search />
+      <main id='main'>
+        <Search getCountries={getCountries}/>
+        <DisplayResults 
+        trackList={trackList}/>
+      </main>
+      
     </div>
     
   );

@@ -2,9 +2,10 @@ function Header(){
 
   return(
    <header>
-      <h1>Hello</h1>
+      <h1>songfinder</h1>
       <p>This is a test..</p>
-      <a href="#search">click me</a>
+      <a href="#main">click me</a>
+      
    </header>
   )
 }
