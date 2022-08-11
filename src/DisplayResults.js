@@ -12,8 +12,8 @@ function DisplayResults(props){
               <div className="songContainer" key={songObject.track.track_id}>
                 <h3>{songObject.track.track_name}</h3>
                 <p className="songArtist">{songObject.track.artist_name}</p>
-                <a href={songObject.track.track_share_url} target='_blank'>Find More Info</a>
-                <a href={`https://www.youtube.com/results?search_query=${songObject.track.track_name}`} target='_blank'>View YouTube</a>
+                <a href={songObject.track.track_share_url} target='_blank' rel='noreferrer'>Find More Info</a>
+                <a href={`https://www.youtube.com/results?search_query=${songObject.track.track_name}`} target='_blank'  rel='noreferrer'>View YouTube</a>
               </div>
             )
           })
