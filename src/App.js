@@ -2,6 +2,7 @@ import{useEffect,useState} from 'react';
 import axios from 'axios';
 import Header from './Header.js';
 import Search from './Search.js';
+import countryMap from './countryMap.js';
 import DisplayResults from './DisplayResults.js';
 import Footer from'./Footer.js';
 
@@ -50,18 +51,7 @@ function App() {
      },[userSelection])
 
   
-    const countryMap = new Map();
-    countryMap.set("placeholder","Canada");
-    countryMap.set("ca","Canada");
-    countryMap.set("us","USA");
-    countryMap.set("uk","UK");
-    countryMap.set("it","Italy");
-    countryMap.set("fr","France");
-    countryMap.set("sg","Singapore");
-    countryMap.set("ge","Germany");
-    countryMap.set("ja","Japan");
-    countryMap.set("in","India");
-    countryMap.set("au","Australia");
+    
   
   return (
     <div className="App">
