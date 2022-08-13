@@ -3,6 +3,7 @@ import axios from 'axios';
 import Header from './Header.js';
 import Search from './Search.js';
 import DisplayResults from './DisplayResults.js';
+import Footer from'./Footer.js';
 
 function App() {
   
@@ -28,7 +29,7 @@ function App() {
         params: {
         chart_name:'top',
         page:1,
-        page_size:12,
+        page_size:10,
         country:userSelection,
         f_has_lyrics:1,
         apikey:'bb5df0cd53ff7e0ab07a9b17e5a6fb30'
@@ -49,8 +50,18 @@ function App() {
      },[userSelection])
 
   
-   
-  
+    const countryMap = new Map();
+    countryMap.set("placeholder","Canada");
+    countryMap.set("ca","Canada");
+    countryMap.set("us","USA");
+    countryMap.set("uk","UK");
+    countryMap.set("it","Italy");
+    countryMap.set("fr","France");
+    countryMap.set("sg","Singapore");
+    countryMap.set("ge","Germany");
+    countryMap.set("ja","Japan");
+    countryMap.set("in","India");
+    countryMap.set("au","Australia");
   
   return (
     <div className="App">
@@ -58,9 +69,10 @@ function App() {
       <main id='main'>
         <Search getCountries={getCountries}/>
         <DisplayResults 
-        trackList={trackList}/>
+        trackList={trackList}
+        country={countryMap.get(userSelection)}/>
       </main>
-      
+      <Footer />
     </div>
     
   );

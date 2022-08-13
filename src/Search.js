@@ -8,7 +8,7 @@ function Search(props){
 
   return(
     <section id='search' className='search'>
-      <h2>Let's find out top songs in some countries!</h2>
+      <h2>Let's find top songs in some countries!</h2>
       <form onSubmit={(e) => props.getCountries(e, userChoice)}>
         <select value={userChoice}
         onChange={handleUserChoice} name="countries" id="countries">
@@ -19,13 +19,14 @@ function Search(props){
           <option value="it">Italy</option>
           <option value="fr">France</option>
           <option value="sg">Singapore</option>
-          <option value="ge">Germany</option>
-          <option value="ja">Japan</option>
+          <option value="de">Germany</option>
+          <option value="jp">Japan</option>
           <option value="in">India</option>
+          <option value="au">Australia</option>
           
 
         </select>
-        <button type="submit">Give me songs!</button>
+        <button type="submit">click me to get songs!</button>
       </form>
 
     </section>
