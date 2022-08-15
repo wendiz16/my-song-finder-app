@@ -7,18 +7,18 @@ import DisplayResults from './DisplayResults.js';
 import Footer from'./Footer.js';
 
 function App() {
-  
+  // store country selection in a state 
   const [userSelection, setUserSelection]=useState('ca');
+  // store songs in a state 
   const[trackList,setTrackList]=useState([]);
   
-  // Define country parameter:
+  // create a method to set user's choice for countries:
   const getCountries = (e, countries) => {
     e.preventDefault();
-    console.log('getting country', countries);
     setUserSelection(countries);
   }
 
-
+  // get API data when userSelection mounts 
   useEffect(
     ()=>{
       
@@ -44,7 +44,7 @@ function App() {
       })
       .catch(err=>{
        console.log(err);
-       alert(err);
+       alert("Sorry, there is something wrong");
      }
        );
    
@@ -54,7 +54,7 @@ function App() {
     
   
   return (
-    <div className="App">
+    <div className="wrapper">
       <Header />
       <main id='main'>
         <Search getCountries={getCountries}/>

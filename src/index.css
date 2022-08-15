@@ -17,7 +17,7 @@ html{
   scroll-behavior:smooth;
 }
 
-body{
+.wrapper{
   text-align: center;
   font-size: 1rem;
 }

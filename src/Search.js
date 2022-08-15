@@ -1,5 +1,6 @@
 import { useState } from 'react';
 function Search(props){
+  // store user's choice in a state 
   const [userChoice, setUserChoice] = useState('placeholder');
   const handleUserChoice = (e) => {
     setUserChoice(e.target.value);

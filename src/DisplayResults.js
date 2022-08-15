@@ -6,6 +6,7 @@ function DisplayResults(props){
       {
         <div className="songs">
         {
+          // map trackList and display each song object 
           props.trackList.map(songObject=>{
             const genre_list=songObject.track.primary_genres.music_genre_list;
             const genre = (genre_list.length>0)? genre_list[0].music_genre.music_genre_name: "Unknown";
