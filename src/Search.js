@@ -13,18 +13,16 @@ function Search(props){
         <select value={userChoice}
         onChange={handleUserChoice} name="countries" id="countries">
           <option value="placeholder" disabled>Pick Country here:</option>
-          <option value="ca">Canada</option>
-          <option value="us">USA</option>
-          <option value="uk">UK</option>
-          <option value="it">Italy</option>
-          <option value="fr">France</option>
-          <option value="sg">Singapore</option>
-          <option value="de">Germany</option>
-          <option value="jp">Japan</option>
-          <option value="in">India</option>
           <option value="au">Australia</option>
-          
-
+          <option value="ca">Canada</option>
+          <option value="fr">France</option>
+          <option value="de">Germany</option>
+          <option value="in">India</option>
+          <option value="it">Italy</option>
+          <option value="jp">Japan</option>
+          <option value="sg">Singapore</option>
+          <option value="uk">UK</option>
+          <option value="us">USA</option>
         </select>
         <button type="submit">click me to get songs!</button>
       </form>
