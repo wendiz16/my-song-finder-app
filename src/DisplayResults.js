@@ -11,6 +11,7 @@ function DisplayResults(props){
             const genre = (genre_list.length>0)? genre_list[0].music_genre.music_genre_name: "Unknown";
             return(
               <div className="songContainer" key={songObject.track.track_id}>
+                <button className={`${songObject.track.track_id}`} onClick={props.handleClick}>save</button>
                 <h4><i class="fas fa-music"></i> {songObject.track.track_name}</h4>
                 <p className="songArtist">{`Artist: ( ${songObject.track.artist_name} )`}</p>
                 <p className="songGenre">{`Genre: ${genre}`}</p>
@@ -19,8 +20,10 @@ function DisplayResults(props){
                   <a href={`https://www.youtube.com/results?search_query=${songObject.track.track_name}+${songObject.track.artist_name}`} target='_blank'  rel='noreferrer' className="btn">Watch on <i class="fab fa-youtube-square"></i></a>
                 </div>
               </div>
+              
             )
           })
+          
         }
       </div>
       }
