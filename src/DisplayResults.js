@@ -1,5 +1,5 @@
 function DisplayResults(props){
-  console.log("haha");
+  
   return (
     <section className="results">
       <h3><i class="fas fa-headphones"></i> Top 10 songs in {props.country} <i class="fas fa-headphones"></i></h3>
