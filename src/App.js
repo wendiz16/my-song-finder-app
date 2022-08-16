@@ -11,17 +11,14 @@ function App() {
     <div className="App">
       
       <Header />
-        
       <main id='main'>
         <Routes>
           <Route path="/" element={<MainSearchPage />}/>
           <Route path="/List" element={<ToListenList  />}/>
         </Routes>
       </main>
-
-      
-      
       <Footer />
+      
     </div>
     
   );
