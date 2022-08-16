@@ -1,10 +1,12 @@
 function DisplayResults(props){
 
-  return (
+  //Error handling --
+  //Sometimes the Music API returns null results (the problems with API happen due to unknown reasons), it will recover later or try more times...
+  //This logic handles this situation by displaying an error tab;
+  return (props.trackList)? (
     <section className="results">
       <div className="wrapper">
         <h3><i class="fas fa-headphones"></i> Top 10 songs in {props.country} <i class="fas fa-headphones"></i></h3>
-        {
         <div className="songs">
         {
           // map trackList and display each song object 
@@ -25,7 +27,18 @@ function DisplayResults(props){
           })
         }
         </div>
-        }
+      </div>
+    </section>
+  ) :
+  (
+    <section className="results">
+      <div className="wrapper">
+        <h3><i class="fas fa-headphones"></i> Top 10 songs in {props.country} <i class="fas fa-headphones"></i></h3>
+        <div className="songs">
+          <div className="songContainer">
+            <h4><i class="fas fa-music"></i> Sorry! There appears to be a problem with the API. Please try a different country or try again later!</h4>
+          </div>
+        </div>
       </div>
     </section>
   )
