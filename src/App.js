@@ -10,13 +10,16 @@ function App() {
   return (
     <div className="App">
       
-      <Header />
-      <main id='main'>
+      
+    
         <Routes>
-          <Route path="/" element={<MainSearchPage />}/>
-          <Route path="/List" element={<ToListenList  />}/>
+            <Route path="/" element={<Header />}/>
+            <Route path="/main" element={<MainSearchPage />}/>
+            <Route path="/List" element={<ToListenList  />}/>
+            
         </Routes>
-      </main>
+    
+      
       <Footer />
       
     </div>

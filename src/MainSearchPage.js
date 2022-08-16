@@ -103,13 +103,13 @@ function MainSearchPage()
   
   return (
 
-      <>
+      <main id="main">
         <Search getCountries={getCountries}/>
         <DisplayResults 
           trackList={trackList}
           country={countryMap.get(userSelection)}
           handleClick={handleClick}/>     
-      </>
+      </main>
 
     
   );
