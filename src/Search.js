@@ -16,7 +16,9 @@ function Search(props){
           onChange={handleUserChoice} name="countries" id="countries">
             <option value="placeholder" disabled>Pick Country here:</option>
             <option value="au">Australia</option>
+            <option value="br">Brazil</option>
             <option value="ca">Canada</option>
+            <option value="eg">Egypt</option>
             <option value="fr">France</option>
             <option value="de">Germany</option>
             <option value="in">India</option>
