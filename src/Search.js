@@ -18,13 +18,13 @@ function Search(props){
             <option value="au">Australia</option>
             <option value="br">Brazil</option>
             <option value="ca">Canada</option>
-            <option value="eg">Egypt</option>
             <option value="fr">France</option>
             <option value="de">Germany</option>
             <option value="in">India</option>
             <option value="it">Italy</option>
             <option value="jp">Japan</option>
             <option value="sg">Singapore</option>
+            <option value="za">South Africa</option>
             <option value="uk">UK</option>
             <option value="us">USA</option>
           </select>
