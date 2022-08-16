@@ -39,7 +39,6 @@ function App() {
     })
 
       .then(res=>{
-       console.log(res.data.message.body.track_list);
        setTrackList(res.data.message.body.track_list);
       })
       .catch(err=>{
@@ -54,7 +53,7 @@ function App() {
     
   
   return (
-    <div className="wrapper">
+    <div className="app">
       <Header />
       <main id='main'>
         <Search getCountries={getCountries}/>

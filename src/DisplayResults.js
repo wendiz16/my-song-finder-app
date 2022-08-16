@@ -2,8 +2,9 @@ function DisplayResults(props){
 
   return (
     <section className="results">
-      <h3><i class="fas fa-headphones"></i> Top 10 songs in {props.country} <i class="fas fa-headphones"></i></h3>
-      {
+      <div className="wrapper">
+        <h3><i class="fas fa-headphones"></i> Top 10 songs in {props.country} <i class="fas fa-headphones"></i></h3>
+        {
         <div className="songs">
         {
           // map trackList and display each song object 
@@ -23,8 +24,9 @@ function DisplayResults(props){
             )
           })
         }
+        </div>
+        }
       </div>
-      }
     </section>
   )
 }
