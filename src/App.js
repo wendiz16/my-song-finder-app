@@ -2,10 +2,23 @@ import{useEffect,useState} from 'react';
 import axios from 'axios';
 import Header from './Header.js';
 import Search from './Search.js';
+import countryMap from './countryMap.js';
+import DisplayResults from './DisplayResults.js';
+import Footer from'./Footer.js';
 
 function App() {
+  // store country selection in a state 
+  const [userSelection, setUserSelection]=useState('ca');
+  // store songs in a state 
   const[trackList,setTrackList]=useState([]);
   
+  // create a method to set user's choice for countries:
+  const getCountries = (e, countries) => {
+    e.preventDefault();
+    setUserSelection(countries);
+  }
+
+  // get API data when userSelection mounts 
   useEffect(
     ()=>{
       
@@ -18,31 +31,38 @@ function App() {
         chart_name:'top',
         page:1,
         page_size:10,
-        country:'ca',
+        country:userSelection,
         f_has_lyrics:1,
-        apikey:'bb5df0cd53ff7e0ab07a9b17e5a6fb30'
+        apikey:'ab14e580cc45631b83cf086ece6a6b2c'
 
       },
     })
 
       .then(res=>{
-       console.log(res.data);
        setTrackList(res.data.message.body.track_list);
+       
       })
       .catch(err=>{
-       console.log(err)
-       alert()
+       console.log(err);
+       alert("Sorry, there is something wrong");
      }
        );
    
-     },[])
-   
+     },[userSelection])
+
   
+    
   
   return (
-    <div className="App">
+    <div className="app">
       <Header />
-      <Search />
+      <main id='main'>
+        <Search getCountries={getCountries}/>
+        <DisplayResults 
+        trackList={trackList}
+        country={countryMap.get(userSelection)}/>
+      </main>
+      <Footer />
     </div>
     
   );
