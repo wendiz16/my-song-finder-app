@@ -4,6 +4,7 @@ import firebase from './firebase';
 import axios from 'axios';
 import Search from './Search.js';
 import countryMap from './countryMap.js';
+import placeholderList from './placeholderList';
 import DisplayResults from './DisplayResults.js';
 function MainSearchPage()
 {
@@ -59,9 +60,9 @@ function MainSearchPage()
         })
       }
 
-   // create a copy of trackList
+   // create a copy of trackList and placeholderList
    const copyOfTrackList = [...trackList];
-
+   const copyOfPlaceHolderList=[...placeholderList];
    // this event will fire whenever the save button is clicked 
 
   const handleClick =(e)=>{
@@ -87,6 +88,27 @@ function MainSearchPage()
       }
     }
   );
+  copyOfPlaceHolderList.forEach(songItem => {
+    console.log("songItem id is", typeof(songItem.track.track_id));//number
+    if(songItem.track.track_id.toString()===e.target.className){
+      console.log("yes");
+
+      const savedSong ={
+        id:songItem.track.track_id, 
+        name:songItem.track.track_name,
+        artist:songItem.track.artist_name,
+        lyricLink:songItem.track.track_share_url
+      }
+      if (!currentList.includes(savedSong.id))
+      {
+        push(dbRef, savedSong);
+      } else
+      {
+        alert("Song is already saved!");
+      }
+    }
+  }
+);
   }
 
 

@@ -2,7 +2,6 @@ import { Routes,Route } from 'react-router-dom';
 import Header from './Header.js';
 import MainSearchPage from './MainSearchPage.js'
 import ToListenList from './ToListenList.js';
-import Footer from'./Footer.js';
 
 function App() {
   

@@ -1,5 +1,5 @@
 import placeholderList from './placeholderList';
-
+import Footer from'./Footer.js';
 function DisplayResults(props){
 
   return (
@@ -59,7 +59,8 @@ function DisplayResults(props){
         }
       </section>
       )
-     }   
+     }  
+     <Footer/> 
    </>
   )
 }
