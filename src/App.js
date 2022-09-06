@@ -14,7 +14,6 @@ function App() {
         <Route path="/main" element={<MainSearchPage />}/>
         <Route path="/List" element={<ToListenList  />}/>    
       </Routes>
-      <Footer /> 
     </div> 
   );
 }
