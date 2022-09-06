@@ -9,6 +9,7 @@ html{line-height:1.15;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;}b
 *{
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 /* Utility */
@@ -16,8 +17,8 @@ html{
   scroll-behavior:smooth;
 }
 
-.wrapper{
- text-align: center;
+body{
+  text-align: center;
   font-size: 1rem;
 }
 a{
@@ -33,7 +34,7 @@ header{
   background-size:cover;
   opacity: 0.9;
   height:100vh;
-  color: #fff;
+  color: white;
 }
 h1{
   margin-top: 100px;
@@ -131,7 +132,7 @@ h2{
   font-weight: 700;
   margin-bottom: 40px;
 }
-.results .wrapper{
+.results{
   display: flex;
   flex-direction: column;
 }
@@ -280,6 +281,3 @@ footer{
  }
 
 }
-
-
-
