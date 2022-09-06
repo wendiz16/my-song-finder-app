@@ -68,7 +68,6 @@ i:hover, i:focus{
   background-position: center;
   background-size:cover;
   
-  
 }
 /* section-search */
 
@@ -212,6 +211,10 @@ footer{
   font-size: 24px;
   background-color: lightgray;
   
+}
+
+.listResults{
+  height:100vw;
 }
 
 /* media queries */

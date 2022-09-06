@@ -1,20 +1,22 @@
+import placeholderList from './placeholderList';
+
 function DisplayResults(props){
 
-  //Error handling --
-  //Sometimes the Music API returns null results (the problems with API happen due to unknown reasons), it will recover later or try more times...
-  //This logic handles this situation by displaying an error tab;
-  return (props.trackList)? (
-    <section className="results">
-      <div className="wrapper">
-        <h3><i class="fas fa-headphones"></i> Top 10 songs in {props.country} <i class="fas fa-headphones"></i></h3>
-        <div className="songs">
-        {
-          // map trackList and display each song object 
-          props.trackList.map(songObject=>{
+  return (
+    <>
+      {
+        props.trackList.length!==0?(
+          <section className="results">
+           <h3><i class="fas fa-headphones"></i> Top 10 songs in {props.country} <i class="fas fa-headphones"></i></h3>
+          {
+            <div className="songs">
+          {
+           props.trackList.map(songObject=>{
             const genre_list=songObject.track.primary_genres.music_genre_list;
             const genre = (genre_list.length>0)? genre_list[0].music_genre.music_genre_name: "Unknown";
             return(
               <div className="songContainer" key={songObject.track.track_id}>
+                <button className={`${songObject.track.track_id}`} onClick={props.handleClick}>save</button>
                 <h4><i class="fas fa-music"></i> {songObject.track.track_name}</h4>
                 <p className="songArtist">{`Artist: ( ${songObject.track.artist_name} )`}</p>
                 <p className="songGenre">{`Genre: ${genre}`}</p>
@@ -23,24 +25,42 @@ function DisplayResults(props){
                   <a href={`https://www.youtube.com/results?search_query=${songObject.track.track_name}+${songObject.track.artist_name}`} target='_blank'  rel='noreferrer' className="btn">Watch on <i class="fab fa-youtube-square"></i></a>
                 </div>
               </div>
+              
             )
-          })
+          })  
         }
+       </div>
+       }
+      </section>
+        ):(
+          <section className="results">
+            <h3><i class="fas fa-headphones"></i> Some songs in different countries <i class="fas fa-headphones"></i></h3>
+          {
+            <div className="songs">
+         {
+             placeholderList.map(songObject=>{
+              const genre_list=songObject.track.primary_genres.music_genre_list;
+              const genre = (genre_list.length>0)? genre_list[0].music_genre.music_genre_name: "Unknown";
+              return(
+                <div className="songContainer" key={songObject.track.track_id}>
+                  <button className={`${songObject.track.track_id}`} onClick={props.handleClick}>save</button>
+                  <h4><i class="fas fa-music"></i> {songObject.track.track_name}</h4>
+                  <p className="songArtist">{`Artist: ( ${songObject.track.artist_name} )`}</p>
+                  <p className="songGenre">{`Genre: ${genre}`}</p>
+                  <div className="links">
+                    <a href={songObject.track.track_share_url} target='_blank' rel='noreferrer' className="btn">Find Lyric <i class="fas fa-search"></i></a>
+                    <a href={`https://www.youtube.com/results?search_query=${songObject.track.track_name}+${songObject.track.artist_name}`} target='_blank'  rel='noreferrer' className="btn">Watch on <i class="fab fa-youtube-square"></i></a>
+                  </div>
+                </div>
+            )
+          })  
+         }
         </div>
-      </div>
-    </section>
-  ) :
-  (
-    <section className="results">
-      <div className="wrapper">
-        <h3><i class="fas fa-headphones"></i> Top 10 songs in {props.country} <i class="fas fa-headphones"></i></h3>
-        <div className="songs">
-          <div className="songContainer">
-            <h4><i class="fas fa-music"></i> Sorry! There appears to be a problem with the API. Please try a different country or try again later!</h4>
-          </div>
-        </div>
-      </div>
-    </section>
+        }
+      </section>
+      )
+     }   
+   </>
   )
 }
 
