@@ -8,22 +8,14 @@ function App() {
   
 
   return (
-    <div className="App">
-      
-      
-    
-        <Routes>
-            <Route path="/" element={<Header />}/>
-            <Route path="/main" element={<MainSearchPage />}/>
-            <Route path="/List" element={<ToListenList  />}/>
-            
-        </Routes>
-    
-      
-      <Footer />
-      
-    </div>
-    
+    <div className="App"> 
+      <Routes>
+        <Route path="/" element={<Header />}/>
+        <Route path="/main" element={<MainSearchPage />}/>
+        <Route path="/List" element={<ToListenList  />}/>    
+      </Routes>
+      <Footer /> 
+    </div> 
   );
 }
 

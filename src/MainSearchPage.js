@@ -32,44 +32,35 @@ function MainSearchPage()
     e.preventDefault();
     console.log('getting country', countries);
     setUserSelection(countries);
+    getSongs(userSelection);
   }
-
-
-  useEffect(
-    ()=>{
-      
-      //get data from API 
-      axios({
-        url: 'https://shrouded-bayou-34065.herokuapp.com/https://api.musixmatch.com/ws/1.1/chart.tracks.get?',
-        method: 'GET',
-        dataResponse: 'json',
-        params: {
-        chart_name:'top',
-        page:1,
-        page_size:10,
-        country:userSelection,
-        f_has_lyrics:1,
-        apikey:'bb5df0cd53ff7e0ab07a9b17e5a6fb30'
-
-      },
-    })
-
-      .then(res=>{
-       console.log(res.data.message.body.track_list);
-       setTrackList(res.data.message.body.track_list);
+  // API call for getting data of top 10 songs in the specific country
+  const getSongs =(userSelection)=>{
+        axios({
+          url: 'https://shrouded-bayou-34065.herokuapp.com/https://api.musixmatch.com/ws/1.1/chart.tracks.get?',
+          method: 'GET',
+          dataResponse: 'json',
+          params: {
+          chart_name:'top',
+          page:1,
+          page_size:10,
+          country:userSelection,
+          f_has_lyrics:1,
+          apikey:'bb5df0cd53ff7e0ab07a9b17e5a6fb30'
+        },
       })
-      .catch(err=>{
-       console.log(err);
-       alert("Sorry, there is something wrong...");
-     }
-       );
-   
-     },[userSelection])
+        .then(res=>{
+         console.log(res.data.message.body.track_list);
+         setTrackList(res.data.message.body.track_list);
+        })
+        .catch(err=>{
+         console.log(err);
+         alert("Sorry, there is something wrong...");
+        })
+      }
 
    // create a copy of trackList
    const copyOfTrackList = [...trackList];
-
-   
 
    // this event will fire whenever the save button is clicked 
 

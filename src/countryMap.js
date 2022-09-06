@@ -1,5 +1,4 @@
 const countryMap = new Map();
-    countryMap.set("placeholder","Canada");
     countryMap.set("ca","Canada");
     countryMap.set("us","USA");
     countryMap.set("uk","UK");
