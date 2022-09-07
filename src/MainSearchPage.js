@@ -4,6 +4,7 @@ import firebase from './firebase';
 import axios from 'axios';
 import Search from './Search.js';
 import countryMap from './countryMap.js';
+import placeholderList from './placeholderList';
 import DisplayResults from './DisplayResults.js';
 function MainSearchPage()
 {
@@ -59,41 +60,60 @@ function MainSearchPage()
         })
       }
 
-   // create a copy of trackList
+   // create a copy of trackList and placeholderList
    const copyOfTrackList = [...trackList];
-
+   const copyOfPlaceHolderList=[...placeholderList];
    // this event will fire whenever the save button is clicked 
 
   const handleClick =(e)=>{
-    console.log(e.target.className);//string 
+    console.log(e.target.classList);//string 
     copyOfTrackList.forEach(songItem => {
-      console.log("songItem id is", typeof(songItem.track.track_id));//number
-      if(songItem.track.track_id.toString()===e.target.className){
-        console.log("yes");
-
+      console.log("songItem2 id is", songItem.track.track_id);//number
+      if(songItem.track.track_id.toString()===e.target.classList[0]){
+        console.log("thing is",e.target.classList);
         const savedSong ={
           id:songItem.track.track_id, 
           name:songItem.track.track_name,
           artist:songItem.track.artist_name,
           lyricLink:songItem.track.track_share_url
         }
+        console.log("savedSong",savedSong);
         if (!currentList.includes(savedSong.id))
         {
           push(dbRef, savedSong);
-        } else
-        {
+        } else{
           alert("Song is already saved!");
         }
       }
     }
   );
+  copyOfPlaceHolderList.forEach(songItem => {
+    console.log("songItemPlaceholderList id is", songItem.track.track_id);//number
+    console.log("songItemPlaceholderList classList", e.target.classList);//number
+    if(songItem.track.track_id.toString()===e.target.classList[0]){
+      
+      const savedSong ={
+        id:songItem.track.track_id, 
+        name:songItem.track.track_name,
+        artist:songItem.track.artist_name,
+        lyricLink:songItem.track.track_share_url
+      }
+      if (!currentList.includes(savedSong.id))
+      {
+        push(dbRef, savedSong);
+      } else
+      {
+        alert("Song is already saved!");
+      }
+    }
+  }
+);
   }
 
 
 
   
   return (
-
       <main id="main">
         <Search getCountries={getCountries}/>
         <DisplayResults 

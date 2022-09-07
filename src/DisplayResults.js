@@ -1,5 +1,5 @@
 import placeholderList from './placeholderList';
-
+import Footer from'./Footer.js';
 function DisplayResults(props){
 
   return (
@@ -16,7 +16,7 @@ function DisplayResults(props){
             const genre = (genre_list.length>0)? genre_list[0].music_genre.music_genre_name: "Unknown";
             return(
               <div className="songContainer" key={songObject.track.track_id}>
-                <button className={`${songObject.track.track_id}`} onClick={props.handleClick}>save</button>
+                <button className={`${songObject.track.track_id} saveBtn`} onClick={props.handleClick}><i class="fas fa-heart"></i></button>
                 <h4><i class="fas fa-music"></i> {songObject.track.track_name}</h4>
                 <p className="songArtist">{`Artist: ( ${songObject.track.artist_name} )`}</p>
                 <p className="songGenre">{`Genre: ${genre}`}</p>
@@ -43,8 +43,8 @@ function DisplayResults(props){
               const genre = (genre_list.length>0)? genre_list[0].music_genre.music_genre_name: "Unknown";
               return(
                 <div className="songContainer" key={songObject.track.track_id}>
-                  <button className={`${songObject.track.track_id}`} onClick={props.handleClick}>save</button>
-                  <h4><i class="fas fa-music"></i> {songObject.track.track_name}</h4>
+                  <button className={`${songObject.track.track_id} saveBtn`} onClick={props.handleClick}><i class="fas fa-heart"></i></button>
+                  <h4><i class="fas fa-music"></i> {songObject.track.track_name}</h4> 
                   <p className="songArtist">{`Artist: ( ${songObject.track.artist_name} )`}</p>
                   <p className="songGenre">{`Genre: ${genre}`}</p>
                   <div className="links">
@@ -59,7 +59,8 @@ function DisplayResults(props){
         }
       </section>
       )
-     }   
+     }  
+     <Footer/> 
    </>
   )
 }
