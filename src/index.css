@@ -72,16 +72,19 @@ i:hover, i:focus{
 }
 /* section-search */
 
-
 .search{
   padding: 20px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-  
+  align-items: center; 
 }
-
+ .backBtn{
+  position: sticky;
+  top:2vw;
+  padding-left: 5vw;
+  text-align: left;
+ }
 
 
 form{
@@ -217,6 +220,7 @@ footer{
 .listResults{
   height:100vw;
 }
+
 
 /* media queries */
 

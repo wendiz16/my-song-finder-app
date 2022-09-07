@@ -8,8 +8,9 @@ function Search(props){
 
 
   return(
+    <>
+      <div className="backBtn"><Link to="/"><i class="fas fa-angle-double-left fa-2x">Back</i></Link></div>
       <section id='search' className='search'>
-        <Link to="/"><i class="fas fa-angle-double-left fa-2x">Back</i></Link>
         <h2>Let's find top songs in some countries!</h2>
         <form onSubmit={(e) => props.getCountries(e, userChoice)}>
           <select value={userChoice}
@@ -31,8 +32,8 @@ function Search(props){
           <button type="submit">click me to get songs!</button>
         </form>
 
-    </section>
-  
+      </section>
+   </>
   )
 }
 

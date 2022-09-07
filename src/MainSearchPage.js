@@ -70,8 +70,6 @@ function MainSearchPage()
     copyOfTrackList.forEach(songItem => {
       console.log("songItem id is", typeof(songItem.track.track_id));//number
       if(songItem.track.track_id.toString()===e.target.className){
-        console.log("yes");
-
         const savedSong ={
           id:songItem.track.track_id, 
           name:songItem.track.track_name,
@@ -91,8 +89,7 @@ function MainSearchPage()
   copyOfPlaceHolderList.forEach(songItem => {
     console.log("songItem id is", typeof(songItem.track.track_id));//number
     if(songItem.track.track_id.toString()===e.target.className){
-      console.log("yes");
-
+      
       const savedSong ={
         id:songItem.track.track_id, 
         name:songItem.track.track_name,
