@@ -10,8 +10,8 @@ function App() {
     <div className="App"> 
       <Routes>
         <Route path="/" element={<Header />}/>
-        <Route path="/main" element={<MainSearchPage />}/>
-        <Route path="/List" element={<ToListenList  />}/>    
+        <Route path="/Search" element={<MainSearchPage />}/>
+        <Route path="/Library" element={<ToListenList  />}/>    
       </Routes>
     </div> 
   );

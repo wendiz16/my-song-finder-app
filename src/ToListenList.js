@@ -54,7 +54,7 @@ function ToListenList (){
       <div style={{width: '100%', overflow: 'hidden',
       display: 'flex', 
       alignItems:'center'}}>
-        <button className="fas fa-chevron-circle-left fa-4x "  onClick={()=>slide('left')}></button>
+        <button className="fas fa-chevron-circle-left fa-4x slide1"  onClick={()=>slide('left')}></button>
       {
         <div className="savedItemWrapper">
           <div className="carousel" id='ToListenListID01'>
@@ -74,15 +74,13 @@ function ToListenList (){
                   </div>
                 </div> 
               </>
-
             )
           })
-    
         }
           </div>
         </div>
       }
-      <button className="fas fa-chevron-circle-right fa-4x "  onClick={()=>slide('right')}></button>
+      <button className="fas fa-chevron-circle-right fa-4x slide2"  onClick={()=>slide('right')}></button>
     </div>
   </section>
   )
