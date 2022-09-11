@@ -42,7 +42,7 @@ a{
 
 #menu-bar{
   width: 45px;
-  height: 40px;
+  height: 20px;
   margin: 30px 0 20px 20px;
   cursor: pointer;
 }
@@ -89,7 +89,9 @@ a{
   width: 0;
   height: 0;
   margin: 30px 0 20px 20px;
-  background: radial-gradient(circle, #b38585, #b38585);
+  background: radial-gradient(circle, #b38585,#b38585);
+  /* background: radial-gradient(circle, black, white); */
+  opacity: .9;
   border-radius: 50%;
   transition: 0.3s ease;
 }
@@ -116,7 +118,7 @@ a{
 
 .change-bg {
   width: 520px;
-  height: 460px;
+  height: 560px;
   transform: translate(-60%,-30%);
 }
 
@@ -331,7 +333,22 @@ h4{
 .fa-trash{
   color: #000;
 }
-
+.logBtn{
+  background:#663a82;
+  font-size: 1rem;
+  width:100%;
+}
+.logStat{
+  color:#663a82;
+  /* font-family:cursive; */
+  font-family: 'Nunito Sans', sans-serif;
+  font-weight: bold;
+}
+.menuItem{
+  color:white;
+  /* font-family:cursive; */
+  font-family: 'Nunito Sans', sans-serif;
+}
 
 
 footer{

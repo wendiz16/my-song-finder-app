@@ -20,8 +20,9 @@ function MainSearchPage(props)
   const getCountries = (e, countries) => {
     e.preventDefault();
     console.log('getting country', countries);
+    getSongs(countries);
     setUserSelection(countries);
-    getSongs(userSelection);
+
   }
   // API call for getting data of top 10 songs in the specific country
   const getSongs =(userSelection)=>{
@@ -38,7 +39,8 @@ function MainSearchPage(props)
       apikey:'bb5df0cd53ff7e0ab07a9b17e5a6fb30'
       },
     }).then(res=>{
-      console.log(res.data.message.body.track_list);
+      console.log(res.data.message.body.track_list[0].track.track_name);
+      console.log("setTrackList ran", )
       setTrackList(res.data.message.body.track_list);
     }).catch(err=>{
       console.log(err);

@@ -51,6 +51,39 @@ function ToListenList ({setIsAuth}){
     // using the Firebase method remove(), we remove the node specific to the song ID
     remove(dbRef)
   }
+
+  const displayToListenList=toListenList.map(songEntry=>{
+    const songItem = songEntry.description;
+    return(
+      <>
+        <div className="songContainer item" key={songItem.id}>
+          <button className="deleteBtn" onClick={() => handleRemoveSong(songEntry.key)}><i class="fas fa-trash"></i></button>
+          <h4><i class="fas fa-music"></i> {songItem.name}</h4>
+          <p className="songArtist">{`Artist: ( ${songItem.artist} )`}</p>
+          <p className="songGenre">{`Genre: ${songItem.genre}`}</p>
+          <div className="links">
+            <a href={songItem.lyricLink} target='_blank' rel='noreferrer' className="btn">Find Lyric <i class="fas fa-search"></i></a>
+            <a href={`https://www.youtube.com/results?search_query=${songItem.name}+${songItem.artist}`} target='_blank'  rel='noreferrer' className="btn">Watch on <i class="fab fa-youtube-square"></i></a>
+          </div>
+        </div> 
+      </>
+    )
+  });
+
+  const emptyList = [1].map( entry => {
+    return(
+      <>
+      <div className="songContainer item">
+        <h4><i class="fas fa-music"></i>What are you looking for?</h4>
+        <p class="songArtist">Oops, the library is empty :)</p>
+        <p class="songArtist">Please add your favorite musics </p>
+        <p class="songArtist">by clicking <div  className=" fas fa-save" /></p>
+      </div> 
+    </>
+    )
+  });
+
+
   return(
     <section className="results listResults">
       <NavBar setIsAuth={setIsAuth} />
@@ -63,24 +96,8 @@ function ToListenList ({setIsAuth}){
         <div className="savedItemWrapper">
           <div className="carousel" id='ToListenListID01'>
           {
-          toListenList.map(songEntry=>{
-            const songItem = songEntry.description;
-            return(
-              <>
-                <div className="songContainer item" key={songItem.id}>
-                  <button className="deleteBtn" onClick={() => handleRemoveSong(songEntry.key)}><i class="fas fa-trash"></i></button>
-                  <h4><i class="fas fa-music"></i> {songItem.name}</h4>
-                  <p className="songArtist">{`Artist: ( ${songItem.artist} )`}</p>
-                  <p className="songGenre">{`Genre: ${songItem.genre}`}</p>
-                  <div className="links">
-                    <a href={songItem.lyricLink} target='_blank' rel='noreferrer' className="btn">Find Lyric <i class="fas fa-search"></i></a>
-                    <a href={`https://www.youtube.com/results?search_query=${songItem.name}+${songItem.artist}`} target='_blank'  rel='noreferrer' className="btn">Watch on <i class="fab fa-youtube-square"></i></a>
-                  </div>
-                </div> 
-              </>
-            )
-          })
-        }
+            (toListenList.length)? displayToListenList:emptyList
+          }
           </div>
         </div>
       }
