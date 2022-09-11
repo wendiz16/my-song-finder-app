@@ -11,7 +11,6 @@ function Login({setIsAuth}){
   //const auth = getAuth();
   const signInAnon = () => {
     console.log("signInAnon")
-    
     signInAnonymously(auth)
         .then(() => {
             localStorage.setItem("isAuth", true);
@@ -42,7 +41,7 @@ function Login({setIsAuth}){
 
   return(
    <section className="logIn">
-     <div className="wrapper">
+     <div className="logInWrapper">
       <h2>Sign in to Continue</h2>
       <button className="signInGoogleBtn" onClick={signInWithGoogle}>Sign in with Google</button>
       <button className="signInAnonBtn" onClick={signInAnon}>Sign in Anonymously</button>

@@ -1,8 +1,7 @@
 import { useState } from 'react';
-import { useNavigate } from "react-router-dom";
 
 function Search(props){
-  
+
   const [userChoice, setUserChoice] = useState('placeholder');
   const handleUserChoice = (e) => {
     setUserChoice(e.target.value);

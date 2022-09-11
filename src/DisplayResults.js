@@ -1,5 +1,7 @@
 import placeholderList from './placeholderList';
 import Footer from'./Footer.js';
+
+
 function DisplayResults(props){
   const headerLine = (props.trackList.length!==0)? `Top 10 songs in ${props.country}`: "Some songs in different countries";
   let trackList = (props.trackList.length!==0)? props.trackList : placeholderList;
@@ -17,12 +19,11 @@ function DisplayResults(props){
               console.log("trackList isAuth", props.isAuth);
               let button;
               if (props.isAuth){
-                button = <button className={`${songObject.track.track_id} saveBtn fas fa-heart`} onClick={props.handleClick} />;
+                button = <button className={`${songObject.track.track_id} saveBtn fas fa-save`} onClick={props.handleClick} />;
               } 
               
               return(
                 <div className="songContainer" key={songObject.track.track_id}>
-
                   {button}
                   <h4><i class="fas fa-music"></i> {songObject.track.track_name}</h4>
                   <p className="songArtist">{`Artist: ( ${songObject.track.artist_name} )`}</p>

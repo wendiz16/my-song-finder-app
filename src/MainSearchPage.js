@@ -105,16 +105,17 @@ function MainSearchPage(props)
 
   
   return (
+      
       <main id="main">
-        <NavBar setIsAuth={props.setIsAuth} />
+        
         <Search getCountries={getCountries} isAuth={isAuth}/>
         <DisplayResults 
           trackList={trackList}
           country={countryMap.get(userSelection)}
           isAuth={props.isAuth}
-          handleClick={handleClick}/>     
+          handleClick={handleClick}/>   
+        <NavBar setIsAuth={props.setIsAuth} />  
       </main>
-
     
   );
 }

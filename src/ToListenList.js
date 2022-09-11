@@ -58,7 +58,7 @@ function ToListenList ({setIsAuth}){
       <div style={{width: '100%', overflow: 'hidden',
       display: 'flex', 
       alignItems:'center'}}>
-        <button className="fas fa-chevron-circle-left fa-4x slide1"  onClick={()=>slide('left')}></button>
+        <button className="fas fa-chevron-circle-left fa-4x slide1"  style={{background:"none"}} onClick={()=>slide('left')}></button>
       {
         <div className="savedItemWrapper">
           <div className="carousel" id='ToListenListID01'>
@@ -68,7 +68,7 @@ function ToListenList ({setIsAuth}){
             return(
               <>
                 <div className="songContainer item" key={songItem.id}>
-                  <button className="deleteBtn"onClick={() => handleRemoveSong(songEntry.key)}><i class="fas fa-trash-alt"></i></button>
+                  <button className="deleteBtn" onClick={() => handleRemoveSong(songEntry.key)}><i class="fas fa-trash"></i></button>
                   <h4><i class="fas fa-music"></i> {songItem.name}</h4>
                   <p className="songArtist">{`Artist: ( ${songItem.artist} )`}</p>
                   <p className="songGenre">{`Genre: ${songItem.genre}`}</p>
@@ -84,7 +84,7 @@ function ToListenList ({setIsAuth}){
           </div>
         </div>
       }
-      <button className="fas fa-chevron-circle-right fa-4x slide2"  onClick={()=>slide('right')}></button>
+      <button className="fas fa-chevron-circle-right fa-4x slide2" style={{background:"none"}} onClick={()=>slide('right')}></button>
     </div>
   </section>
   )
