@@ -233,8 +233,8 @@ footer{
 /* section- to-listen List */
 
 .listResults{
-  height:50vw;
   background-color:#dfdfdf;
+  height: 100vh;
 }
 
 .savedItemWrapper{

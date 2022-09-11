@@ -2,6 +2,7 @@ import { getDatabase, ref,remove,onValue} from 'firebase/database';
 
 import{useEffect,useState} from 'react';
 import firebase from './firebase';
+import NavBar from './NavBar.js';
 
 
 function slide(direction,step=10,distance=400,speed=10){
@@ -20,13 +21,14 @@ function slide(direction,step=10,distance=400,speed=10){
   }, speed);
 }
 
-function ToListenList (){
+function ToListenList ({setIsAuth}){
   
   const[toListenList, setToListenList]=useState([]);
-  
-  const database = getDatabase(firebase);
-  const dbRef = ref(database);
+  const userId = localStorage.getItem("userId");
+
   useEffect(()=>{
+    const database = getDatabase(firebase);
+    const dbRef = ref(database, `/users/${userId}/list`);
     onValue(dbRef, (response) => {
       const newState = [];
       const data = response.val();
@@ -37,19 +39,21 @@ function ToListenList (){
       
       setToListenList(newState);
     })
-  },[dbRef])
+  },[userId])
 
 
   const handleRemoveSong = (id) => {
+    console.log(userId, id);
     // here we create a reference to the database 
     // this time though, instead of pointing at the whole database, we make our dbRef point to the specific node of the song we want to remove
     const database = getDatabase(firebase);
-    const dbRef = ref(database, `/${id}`);
+    const dbRef = ref(database, `/users/${userId}/list/${id}`);
     // using the Firebase method remove(), we remove the node specific to the song ID
     remove(dbRef)
   }
   return(
     <section className="results listResults">
+      <NavBar setIsAuth={setIsAuth} />
       <h3><i class="fas fa-headphones"></i> My to-listen List <i class="fas fa-headphones"></i></h3>
       <div style={{width: '100%', overflow: 'hidden',
       display: 'flex', 
