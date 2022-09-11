@@ -1,16 +1,15 @@
 import { useState } from 'react';
-import {Link} from 'react-router-dom';
+
 function Search(props){
-  // store user's choice in a state 
+
   const [userChoice, setUserChoice] = useState('placeholder');
   const handleUserChoice = (e) => {
     setUserChoice(e.target.value);
   }
+  
 
 
   return(
-    <>
-      <div className="backBtn"><Link to="/"><i class="fas fa-angle-double-left fa-2x">Back</i></Link></div>
       <section id='search' className='search'>
         <h2>Let's find top songs in some countries!</h2>
         <form onSubmit={(e) => props.getCountries(e, userChoice)}>
@@ -32,9 +31,7 @@ function Search(props){
           </select>
           <button type="submit">click me to get songs!</button>
         </form>
-
       </section>
-   </>
   )
 }
 
