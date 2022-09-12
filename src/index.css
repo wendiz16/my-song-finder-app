@@ -396,6 +396,7 @@ footer{
     position:relative;
     border-radius: 20px;
     box-shadow: 0 0 10px #dfdfdf;
+    padding: 10px;
 }
 
 .slide1{
@@ -548,7 +549,15 @@ footer{
   display: none;
  }
  .item{
-  width:300px;
+  width:310px;
+  padding: 10px;
+ }
+ .item h4{
+  margin-top: 10px;
+ }
+ .links{
+  display:flex;
+  flex-direction: column;
  }
  .songs{
   margin-top: -15px;

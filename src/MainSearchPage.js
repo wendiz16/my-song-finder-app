@@ -10,7 +10,7 @@ import NavBar from './NavBar.js';
 
 function MainSearchPage(props)
 {
-  const [userSelection, setUserSelection]=useState('ca');
+  const [userSelection, setUserSelection]=useState('none');
   const [trackList,setTrackList]=useState([]);
   const [currentList,setCurrentList] = useState([]);
   const userId = localStorage.getItem("userId");
@@ -19,9 +19,11 @@ function MainSearchPage(props)
   // Define country parameter:
   const getCountries = (e, countries) => {
     e.preventDefault();
-    console.log('getting country', countries);
-    getSongs(countries);
-    setUserSelection(countries);
+    if(countries!=="placeholder"){
+      console.log('getting country', countries);
+      getSongs(countries);
+      setUserSelection(countries);
+    }
 
   }
   // API call for getting data of top 10 songs in the specific country
@@ -44,7 +46,7 @@ function MainSearchPage(props)
       setTrackList(res.data.message.body.track_list);
     }).catch(err=>{
       console.log(err);
-      alert("Sorry, there is something wrong...");
+      alert("Sorry, there is something wrong with API...");
     })
   }
    
