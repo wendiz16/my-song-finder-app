@@ -469,7 +469,9 @@ footer{
  .listResults h3{
   margin-top: 30vw;
  }
-}
+ .links .btn{
+  margin-right: 3px;
+ }
 
 /* Smartphones */
 
@@ -552,7 +554,7 @@ footer{
   margin-top: -15px;
  }
 
-}
+}}
 
 
 
