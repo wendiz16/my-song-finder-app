@@ -74,7 +74,7 @@ function ToListenList ({setIsAuth}){
     return(
       <>
       <div className="songContainer item">
-        <h4><i class="fas fa-music"></i>What are you looking for?</h4>
+        <h4><i class="fas fa-music"></i> What are you looking for?</h4>
         <p class="songArtist">Oops, the library is empty :)</p>
         <p class="songArtist">Please add your favorite musics </p>
         <p class="songArtist">by clicking <div  className=" fas fa-save" /></p>
@@ -88,9 +88,7 @@ function ToListenList ({setIsAuth}){
     <section className="results listResults">
       <NavBar setIsAuth={setIsAuth} />
       <h3><i class="fas fa-headphones"></i> My to-listen List <i class="fas fa-headphones"></i></h3>
-      <div style={{width: '100%', overflow: 'hidden',
-      display: 'flex', 
-      alignItems:'center'}}>
+      <div className="overWrapper">
         <button className="fas fa-chevron-circle-left fa-4x slide1"  style={{background:"none"}} onClick={()=>slide('left')}></button>
       {
         <div className="savedItemWrapper">

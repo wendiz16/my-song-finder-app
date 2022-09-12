@@ -109,7 +109,6 @@ function MainSearchPage(props)
   return (
       
       <main id="main">
-        
         <Search getCountries={getCountries} isAuth={isAuth}/>
         <DisplayResults 
           trackList={trackList}
