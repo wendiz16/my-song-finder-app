@@ -6,7 +6,6 @@ function Header({setIsAuth}){
   //const loginStatement = (isAuth)? `Logged in as ${username}` : <Link to='/Login'>LogIn</Link>;
   return(
     <header>
-      
       <h1><i class="fas fa-headphones-alt"></i><span>S</span>ongFinder</h1>
       <p className="headerP">Find top 10 songs in different countries </p>
       <Link to='/Search'>

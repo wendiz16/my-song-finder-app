@@ -1,7 +1,7 @@
 import { auth, provider } from "./firebase";
 import { signInWithPopup, signInAnonymously } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
-
+import NavBar from './NavBar.js';
 
 
 function Login({setIsAuth}){
@@ -41,11 +41,15 @@ function Login({setIsAuth}){
 
   return(
    <section className="logIn">
+     <NavBar setIsAuth={setIsAuth} />
      <div className="logInWrapper">
-      <h2>Sign in to Continue</h2>
-      <button className="signInGoogleBtn" onClick={signInWithGoogle}>Sign in with Google</button>
-      <button className="signInAnonBtn" onClick={signInAnon}>Sign in Anonymously</button>
+      <div className="signinContainer">
+        <h2>Sign in to Continue</h2>
+        <button className="signInGoogleBtn" onClick={signInWithGoogle}>Sign in with Google</button>
+        <button className="signInAnonBtn" onClick={signInAnon}>Sign in Anonymously</button>
+      </div>
      </div>
+     
    </section>
   )
 }
