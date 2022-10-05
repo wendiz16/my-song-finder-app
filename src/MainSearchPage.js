@@ -14,7 +14,6 @@ function MainSearchPage(props)
   const [trackList,setTrackList]=useState([]);
   const [currentList,setCurrentList] = useState([]);
   const userId = localStorage.getItem("userId");
-  const isAuth = localStorage.getItem("isAuth");
   // Define country parameter:
   const getCountries = (e, countries) => {
     e.preventDefault();
@@ -63,7 +62,6 @@ function MainSearchPage(props)
         // inside the loop, we push each song item to an array we already created inside the onValue() function called newState
         newState.push(data[key].id);
       }
-      //console.log("newState is ", newState);
 
       setCurrentList(newState); 
     })
