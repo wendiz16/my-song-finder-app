@@ -15,7 +15,6 @@ function MainSearchPage(props)
   const [currentList,setCurrentList] = useState([]);
   const userId = localStorage.getItem("userId");
   const isAuth = localStorage.getItem("isAuth");
-  console.log("MainSearchPage isAuth", props.isAuth);
   // Define country parameter:
   const getCountries = (e, countries) => {
     e.preventDefault();
@@ -111,7 +110,7 @@ function MainSearchPage(props)
   return (
       
       <main id="main">
-        <Search getCountries={getCountries} isAuth={isAuth}/>
+        <Search getCountries={getCountries}/>
         <DisplayResults 
           trackList={trackList}
           country={countryMap.get(userSelection)}

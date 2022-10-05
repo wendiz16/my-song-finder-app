@@ -8,7 +8,6 @@ function Login({setIsAuth}){
   let navigate = useNavigate();
   console.log("Login Func")
   // a function that allows sign-in anonymously.
-  //const auth = getAuth();
   const signInAnon = () => {
     console.log("signInAnon")
     signInAnonymously(auth)
@@ -17,7 +16,6 @@ function Login({setIsAuth}){
             localStorage.setItem("userName", "anonymous");
             localStorage.setItem("userId", "anonymousId");
             setIsAuth(true);
-            console.log("try navigate?")
             navigate("/Search");
         })
         .catch((err) => console.log(err.message));
