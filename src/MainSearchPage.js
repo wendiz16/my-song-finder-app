@@ -56,7 +56,7 @@ function MainSearchPage(props)
     const dbRef = ref(database,`/users/${userId}/list`);
     onValue(dbRef, (response) => {
       const newState = [];
-      const data = response.val();
+      const data = response.val();           
       console.log(data);
       for (let key in data) {
         // inside the loop, we push each song item to an array we already created inside the onValue() function called newState
@@ -81,7 +81,6 @@ function MainSearchPage(props)
         if (!songLooped) {
           songIDSet.add(songItem.track.track_id);
         } else return;
-        console.log("thing is",e.target.classList);
         const genre_list=songItem.track.primary_genres.music_genre_list;
         const genre = (genre_list.length>0)? genre_list[0].music_genre.music_genre_name: "Unknown";
         const savedSong ={
@@ -91,10 +90,8 @@ function MainSearchPage(props)
           genre:genre,
           lyricLink:songItem.track.track_share_url
         }
-        console.log("savedSong",savedSong);
         if (!currentList.includes(savedSong.id))
         {
-          console.log("pushing", songItem.track.track_id)
           push(dbRef, savedSong);
         } else{
           alert("Song is already saved!");
