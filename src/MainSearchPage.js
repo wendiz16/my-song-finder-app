@@ -27,7 +27,7 @@ function MainSearchPage(props)
   // API call for getting data of top 10 songs in the specific country
   const getSongs =(userSelection)=>{
     axios({
-      url: 'https://shrouded-bayou-34065.herokuapp.com/https://api.musixmatch.com/ws/1.1/chart.tracks.get?',
+      url: 'https://proxy-ugwolsldnq-uc.a.run.app/https://api.musixmatch.com/ws/1.1/chart.tracks.get?',
       method: 'GET',
       dataResponse: 'json',
       params: {

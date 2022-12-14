@@ -5,6 +5,7 @@ import Footer from'./Footer.js';
 function DisplayResults(props){
   const headerLine = (props.trackList.length)? `Top 10 songs in ${props.country}`: "Some songs in different countries";
   let trackList = (props.trackList.length)? props.trackList : placeholderList;
+  
   console.log("DisplayResults isAuth: ", props.isAuth)
   return (
     <>
